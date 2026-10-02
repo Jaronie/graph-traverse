@@ -28,6 +28,67 @@ public class Traverse {
     v45.neighbors = new ArrayList<>(List.of(v23));
     v23.neighbors = new ArrayList<>(List.of());
     v67.neighbors = new ArrayList<>(List.of(v91));
+  
+
+  //Set<Vertex<?>> visited = new HashSet<>();
+
+  printVertices(v7);
+  System.out.println(sum(v7));
+
   }
 
+  public static void printVertices(Vertex<?> current){
+    Set<Vertex<?>> visted = new HashSet<>();
+
+    printVertices(current, visited);
+
+  }
+
+
+  // Graph DFS
+  public static void printVertices(Vertex<> current, Set<Vertex<?>> visited){
+    if(current == null) return;
+
+
+    visited.add(current);
+
+    if(visited.contains(current)) return;
+    
+
+    System.out.println(current.data);
+
+    // Recurse over the children
+    for(Vertex<> neightbor : current.neighbors) {
+      printVertices(neighbors, visited);
+    }
+
+  }
+
+  public static int sum(Vertex<Integer> current){
+    Set<Vertex<Integer> visited = new HashSet<>();
+
+    return sum(current, visited);
+
+
+
+  }
+
+  private static int sum(Vertex<Integer> current, Set<Vertex<Integer>> visited) {
+    if(current == null || visited.contains(current)) return 0;
+
+    visited.add(current);
+
+    int total = 0;
+    total += current.data;
+
+    for(var neighbor : current.neighbors){
+      total += sum(neighbor, visited);
+
+    }
+
+    return total;
+
+
+  }
 }
+
