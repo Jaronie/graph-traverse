@@ -49,10 +49,12 @@ public class Traverse {
   public static void printVertices(Vertex<> current, Set<Vertex<?>> visited){
     if(current == null) return;
 
+    
+    if(visited.contains(current)) return;
+    
 
     visited.add(current);
 
-    if(visited.contains(current)) return;
     
 
     System.out.println(current.data);
