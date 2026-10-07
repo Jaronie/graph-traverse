@@ -38,20 +38,19 @@ public class Traverse {
   }
 
   public static void printVertices(Vertex<?> current){
-    Set<Vertex<?>> visted = new HashSet<>();
-
+    Set<Vertex<?>> visited = new HashSet<>();
     printVertices(current, visited);
 
   }
 
 
   // Graph DFS
-  public static void printVertices(Vertex<> current, Set<Vertex<?>> visited){
+  public static void printVertices(Vertex<?> current, Set<Vertex<?>> visited){
     if(current == null) return;
 
     
     if(visited.contains(current)) return;
-    
+
 
     visited.add(current);
 
@@ -60,14 +59,14 @@ public class Traverse {
     System.out.println(current.data);
 
     // Recurse over the children
-    for(Vertex<> neightbor : current.neighbors) {
-      printVertices(neighbors, visited);
+    for(Vertex<?> neighbor : current.neighbors) {
+      printVertices(neighbor);
     }
 
   }
 
   public static int sum(Vertex<Integer> current){
-    Set<Vertex<Integer> visited = new HashSet<>();
+    Set<Vertex<Integer>> visited = new HashSet<>();
 
     return sum(current, visited);
 
